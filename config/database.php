@@ -2,6 +2,7 @@
 
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
+print_r($heroku_psql_url);
 
 
 return [

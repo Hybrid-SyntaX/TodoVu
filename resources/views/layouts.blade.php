@@ -8,7 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
-
+<?php 
+$heroku_psql_url = parse_url(getenv('DATABASE_URL'));
+print_r($heroku_psql_url);
+?>
 <body>
     <div id="app" class="container">
         @yield('content')
