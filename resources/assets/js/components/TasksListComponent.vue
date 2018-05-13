@@ -83,7 +83,7 @@ export default {
       API_ENDPOINT:
         process.env.NODE_ENV === "development"
           ? "/api/tasks/"
-          : "https://todovu.herokuapp.com/api/tasks/",
+          : "https://todovu.herokuapp.com/api/tasks",
       modes: {
         edit: false,
         delete: false
