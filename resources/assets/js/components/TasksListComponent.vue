@@ -77,13 +77,14 @@ export default {
   async mounted() {
     console.log("Component mounted.");
     await this.populateTasks();
+    console.log("Running in ", process.env.NODE_ENV);
   },
   data() {
     return {
       API_ENDPOINT:
         process.env.NODE_ENV === "development"
           ? "/api/tasks/"
-          : "https://todovu.herokuapp.com/api/tasks",
+          : "https://todovu.herokuapp.com/api/tasks/",
       modes: {
         edit: false,
         delete: false
