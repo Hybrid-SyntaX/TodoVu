@@ -47929,7 +47929,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return axios.get(this.API_ENDPOINT + "/");
+                return axios.get(this.API_ENDPOINT);
 
               case 2:
                 response = _context4.sent;
@@ -48856,7 +48856,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "columns " }, [
     _c("div", { staticClass: "column" }, [
-      _c("div", { staticClass: "field has-addons " }, [
+      _c("div", { staticClass: "field has-addons box column is-4" }, [
         _c("div", { staticClass: "control" }, [
           _c("input", {
             directives: [
@@ -48867,7 +48867,7 @@ var render = function() {
                 expression: "newTask.name"
               }
             ],
-            staticClass: "input is-7",
+            staticClass: "input is-8",
             attrs: { placeholder: "Add new task" },
             domProps: { value: _vm.newTask.name },
             on: {

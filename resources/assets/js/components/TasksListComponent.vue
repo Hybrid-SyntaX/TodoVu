@@ -9,9 +9,9 @@
     <div class="column">
 
       
-        <div class="field has-addons ">
+        <div class="field has-addons box column is-4">
           <div class="control">
-            <input v-model="newTask.name" placeholder="Add new task" class="input is-7" />
+            <input v-model="newTask.name" placeholder="Add new task" class="input is-8" />
           </div>
           <div class="control">
             <button class="button is-info" @click.stop="save">
@@ -134,7 +134,7 @@ export default {
       this.modes.delete = false;
     },
     readAll: async function() {
-      var response = await axios.get(this.API_ENDPOINT + "/");
+      var response = await axios.get(this.API_ENDPOINT);
       return response.data;
     },
     toggleCompletion: async function(task) {
