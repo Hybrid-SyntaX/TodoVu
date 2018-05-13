@@ -54,14 +54,14 @@ return [
         'heroku_pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', $heroku_psql_host),
-            'port' => env('DB_PORT', $heroku_psql_port),
+            //'port' => env('DB_PORT', $heroku_psql_port),
             'database' => env('DB_DATABASE', $heroku_psql_database),
             'username' => env('DB_USERNAME',$heroku_psql_username),
             'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
-            //'prefix' => '',
+            'prefix' => '',
             //'schema' => $heroku_psql_url['scheme'],
-            //'schema' => 'public',
+            'schema' => 'public',
             //'sslmode' => 'prefer',
         ],
         'sqlite' => [
