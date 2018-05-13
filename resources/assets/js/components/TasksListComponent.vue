@@ -1,3 +1,8 @@
+<style>
+.task {
+  border-radius: 0px;
+}
+</style>
 <template>
 
   <div class="columns ">
@@ -17,7 +22,7 @@
       </form>
 
       <ul class="column is-4">
-        <li v-for="task in tasks" v-bind:key="task.id" @click="select(task)" :class="['box',selectedClass(task),completedTaskClass(task)]">
+        <li v-for="task in tasks" v-bind:key="task.id" @click="select(task)" :class="['box','task','is-marginless',selectedClass(task),completedTaskClass(task)]">
 
           <div class="field is-grouped columns">
             <div class="field is-grouped column  is-8">
