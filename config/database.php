@@ -57,7 +57,8 @@ return [
             'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
             'prefix' => '',
-            'schema' => $heroku_psql_scheme,
+            //'schema' => $heroku_psql_scheme,
+            'schema' => 'public',
             'sslmode' => 'prefer',
         ],
         'sqlite' => [
