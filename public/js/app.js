@@ -47811,7 +47811,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   }(),
   data: function data() {
     return {
-      API_ENDPOINT: "https://todovu.herokuapp.com/api/tasks",
+      API_ENDPOINT:  true ? "/api/tasks" : "https://todovu.herokuapp.com/api/tasks",
       modes: {
         edit: false,
         delete: false
@@ -47997,7 +47997,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 response = _context6.sent;
 
                 if (!response) {
-                  _context6.next = 7;
+                  _context6.next = 8;
                   break;
                 }
 
@@ -48005,6 +48005,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 return this.populateTasks();
 
               case 7:
+                this.newTask.name = null;
+
+              case 8:
               case "end":
                 return _context6.stop();
             }

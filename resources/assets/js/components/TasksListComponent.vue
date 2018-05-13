@@ -80,7 +80,10 @@ export default {
   },
   data() {
     return {
-      API_ENDPOINT: "https://todovu.herokuapp.com/api/tasks",
+      API_ENDPOINT:
+        process.env.NODE_ENV === "development"
+          ? "/api/tasks"
+          : "https://todovu.herokuapp.com/api/tasks",
       modes: {
         edit: false,
         delete: false
@@ -144,7 +147,10 @@ export default {
     save: async function(e) {
       e.stopPropagation();
       const response = await axios.post(this.API_ENDPOINT, this.newTask);
-      if (response) await this.populateTasks();
+      if (response) {
+        await this.populateTasks();
+        this.newTask.name = null;
+      }
     },
     edit: async function() {
       const response = await axios.put(
