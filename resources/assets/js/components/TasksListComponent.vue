@@ -80,6 +80,7 @@ export default {
   },
   data() {
     return {
+      API_ENDPOINT: "https://todovu.herokuapp.com/api/tasks",
       modes: {
         edit: false,
         delete: false
@@ -122,27 +123,31 @@ export default {
     },
     remove: async function(e) {
       e.stopPropagation();
-      const response = await axios.delete("api/tasks/" + this.selectedTask.id);
+      const response = await axios.delete(
+        this.API_ENDPOINT + this.selectedTask.id
+      );
       if (response) await this.populateTasks();
       this.modes.delete = false;
     },
     readAll: async function() {
-      var response = await axios.get("api/tasks/");
+      var response = await axios.get(this.API_ENDPOINT);
       return response.data;
     },
     toggleCompletion: async function(task) {
       var uri =
-        "api/tasks/" + task.id + (task.completionDate ? "/undone" : "/done");
+        this.API_ENDPOINT +
+        task.id +
+        (task.completionDate ? "/undone" : "/done");
       const response = await axios.patch(uri);
       if (response) await this.populateTasks();
     },
     save: async function() {
-      const response = await axios.post("api/tasks/", this.newTask);
+      const response = await axios.post(this.API_ENDPOINT, this.newTask);
       if (response) await this.populateTasks();
     },
     edit: async function() {
       const response = await axios.put(
-        "api/tasks/" + this.selectedTask.id,
+        this.API_ENDPOINT + this.selectedTask.id,
         this.selectedTask
       );
       if (response) {
