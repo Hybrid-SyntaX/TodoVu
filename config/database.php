@@ -45,7 +45,7 @@ return [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', $heroku_psql_url['host']),
             'port' => env('DB_PORT', $heroku_psql_url['port']),
-            'database' => env('DB_DATABASE', 'tasks'),
+            'database' => env('DB_DATABASE', ltrim($heroku_psql_url['path'],'/')),
             'username' => env('DB_USERNAME',$heroku_psql_url['user']),
             'password' => env('DB_PASSWORD', $heroku_psql_url['pass']),
             'charset' => 'utf8',
