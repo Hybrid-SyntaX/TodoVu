@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://todovu.herokuapp.com/'),
+    //'url' => env('APP_URL', 'https://todovu.herokuapp.com/'),
+    'url' => env('APP_URL', 'localhost:8000'),
 
     /*
     |--------------------------------------------------------------------------

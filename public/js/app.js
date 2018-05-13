@@ -48850,47 +48850,45 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "columns " }, [
     _c("div", { staticClass: "column" }, [
-      _c("form", { attrs: { id: "newTaskForm" } }, [
-        _c("div", { staticClass: "field has-addons " }, [
-          _c("div", { staticClass: "control" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.newTask.name,
-                  expression: "newTask.name"
+      _c("div", { staticClass: "field has-addons " }, [
+        _c("div", { staticClass: "control" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.newTask.name,
+                expression: "newTask.name"
+              }
+            ],
+            staticClass: "input is-7",
+            attrs: { placeholder: "Add new task" },
+            domProps: { value: _vm.newTask.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              ],
-              staticClass: "input is-7",
-              attrs: { placeholder: "Add new task" },
-              domProps: { value: _vm.newTask.name },
+                _vm.$set(_vm.newTask, "name", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button is-info",
               on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.newTask, "name", $event.target.value)
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.save($event)
                 }
               }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c(
-              "button",
-              {
-                staticClass: "button is-info",
-                on: {
-                  click: function($event) {
-                    $event.stopPropagation()
-                    return _vm.save($event)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fa fa-plus" })]
-            )
-          ])
+            },
+            [_c("i", { staticClass: "fa fa-plus" })]
+          )
         ])
       ]),
       _vm._v(" "),

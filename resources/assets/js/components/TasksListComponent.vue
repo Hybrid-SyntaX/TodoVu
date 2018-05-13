@@ -8,7 +8,7 @@
   <div class="columns ">
     <div class="column">
 
-      <form id="newTaskForm">
+      
         <div class="field has-addons ">
           <div class="control">
             <input v-model="newTask.name" placeholder="Add new task" class="input is-7" />
@@ -19,7 +19,7 @@
             </button>
           </div>
         </div>
-      </form>
+      
 
       <ul class="column is-4">
         <li v-for="task in tasks" v-bind:key="task.id" @click="select(task)" :class="['box','task','is-marginless',selectedClass(task),completedTaskClass(task)]">
