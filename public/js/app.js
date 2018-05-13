@@ -47814,7 +47814,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   }(),
   data: function data() {
     return {
-      API_ENDPOINT: window.location.hostname === "todovu.herokuapp.com" ? "https://todovu.herokuapp.com/api/tasks/" : "/api/tasks/",
+      API_ENDPOINT: "https://todovu.herokuapp.com/api/tasks/",
+      // window.location.hostname === "todovu.herokuapp.com"
+      //   ? "https://todovu.herokuapp.com/api/tasks/"
+      //   : "/api/tasks/",
       modes: {
         edit: false,
         delete: false
