@@ -8,14 +8,13 @@
   <div class="columns ">
     <div class="column">
 
-      
       <ul class="column is-6">
         <li class="field has-addons  " style="border-radius:0px">
           <div class="control is-expanded">
-            <input v-model="newTask.name" placeholder="Add new task" class="input is-info" />
+            <input v-model="newTask.name" placeholder="Add new task" class="input is-info is-large" />
           </div>
           <div class="control">
-            <button class="button is-info" @click.stop="save">
+            <button class="button is-info is-large" @click.stop="save">
               <i class="fa fa-plus" />
             </button>
           </div>
@@ -23,51 +22,53 @@
         <li v-for="task in tasks" v-bind:key="task.id" @click="select(task)" :class="['box','task','is-marginless',selectedClass(task),completedTaskClass(task)]">
 
           <div class="field is-grouped columns">
-            <div class="field is-grouped  column ">
-              <div class="control">
-                <button class="button is-small" @click="toggleCompletion(task)">
-                <i class="fa" :class="taskCompletionButtonClass(task)" />
-              </button>
-                </div>
-              <div class="control is-marginless">
-                <input type="text" v-model="task.name" class="input is-small is-expanded is-marginless" @click.stop="" v-if="modes.edit && isSelected(task)">
-                <span class="is-marginless" v-else> {{task.name}}</span>
-              </div>
-            <!-- </div> -->
-            <!--controls -->
-            <div class="buttons has-addons is-marginess " v-if="isSelected(task)">
-              <!-- edit buttons -->
-              <div v-if="!modes.delete" class="control">
-                <button class="button is-marginless is-small" @click.stop="modes.edit=true" v-if="!modes.edit">
-                  <i class="fa fa-edit" />
+            <div class="field is-grouped column">
+              <div class="control column is-1">
+                <button class="button " @click="toggleCompletion(task)">
+                  <i class="fa" :class="taskCompletionButtonClass(task)" />
                 </button>
-                <!-- buttons -->
-                <div class="buttons has-addons is-marginless" v-if="modes.edit">
-                  <button class="button is-small" @click.stop="cancelEdit">
-                    <i class="fa fa-ban" />
-                  </button>
-                  <button class="button is-small is-primary" @click.stop="edit">
-                    <i class="fa fa-save" />
-                  </button>
+              </div>
+              <div class="control column is-8">
+                <input type="text" v-model="task.name" class="input  is-expanded" @click.stop="" v-if="modes.edit && isSelected(task)">
+                <span class="is-size-4" v-else> {{task.name}}</span>
+              </div>
+              <!-- </div> -->
+              <!--controls -->
+              <div class="control is-pulled-right column is-2">
+                <div class="buttons has-addons " v-if="isSelected(task)">
+                  <!-- edit buttons -->
+                  <div v-if="!modes.delete" class="control">
+                    <button class="button " @click.stop="modes.edit=true" v-if="!modes.edit">
+                      <i class="fa fa-edit" />
+                    </button>
+                    <!-- buttons -->
+                    <div class="buttons has-addons " v-if="modes.edit">
+                      <button class="button " @click.stop="cancelEdit">
+                        <i class="fa fa-ban" />
+                      </button>
+                      <button class="button  is-primary" @click.stop="edit">
+                        <i class="fa fa-save" />
+                      </button>
+                    </div>
+                  </div>
+                  <!-- delete button -->
+                  <div v-if="!modes.edit" class="control">
+                    <button class="button " v-if="!modes.delete">
+                      <i class="fa fa-times" @click.stop="modes.delete=true" />
+                    </button>
+                    <!-- buttons -->
+                    <div class="buttons has-addons " v-else>
+                      <button class="button " @click.stop="modes.delete=false">
+                        <i class="fa fa-ban" />
+                      </button>
+                      <button class="button  is-danger">
+                        <i class="fa fa-trash" @click.stop="remove" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <!-- delete button -->
-              <div v-if="!modes.edit" class="control">
-                <button class="button is-marginless is-small" v-if="!modes.delete">
-                  <i class="fa fa-times" @click.stop="modes.delete=true" />
-                </button>
-                <!-- buttons -->
-                <div class="buttons has-addons is-marginless" v-else>
-                  <button class="button is-small" @click.stop="modes.delete=false">
-                    <i class="fa fa-ban" />
-                  </button>
-                  <button class="button is-small is-danger">
-                    <i class="fa fa-trash" @click.stop="remove" />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- /controls -->
+              <!-- /controls -->
             </div>
           </div>
         </li>

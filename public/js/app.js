@@ -47787,6 +47787,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function () {
@@ -48905,7 +48906,7 @@ var render = function() {
                       expression: "newTask.name"
                     }
                   ],
-                  staticClass: "input is-info",
+                  staticClass: "input is-info is-large",
                   attrs: { placeholder: "Add new task" },
                   domProps: { value: _vm.newTask.name },
                   on: {
@@ -48923,7 +48924,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "button is-info",
+                    staticClass: "button is-info is-large",
                     on: {
                       click: function($event) {
                         $event.stopPropagation()
@@ -48957,12 +48958,12 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "field is-grouped columns" }, [
-                  _c("div", { staticClass: "field is-grouped  column " }, [
-                    _c("div", { staticClass: "control" }, [
+                  _c("div", { staticClass: "field is-grouped column" }, [
+                    _c("div", { staticClass: "control column is-1" }, [
                       _c(
                         "button",
                         {
-                          staticClass: "button is-small",
+                          staticClass: "button ",
                           on: {
                             click: function($event) {
                               _vm.toggleCompletion(task)
@@ -48978,7 +48979,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "control is-marginless" }, [
+                    _c("div", { staticClass: "control column is-8" }, [
                       _vm.modes.edit && _vm.isSelected(task)
                         ? _c("input", {
                             directives: [
@@ -48989,8 +48990,7 @@ var render = function() {
                                 expression: "task.name"
                               }
                             ],
-                            staticClass:
-                              "input is-small is-expanded is-marginless",
+                            staticClass: "input  is-expanded",
                             attrs: { type: "text" },
                             domProps: { value: task.name },
                             on: {
@@ -49005,156 +49005,157 @@ var render = function() {
                               }
                             }
                           })
-                        : _c("span", { staticClass: "is-marginless" }, [
+                        : _c("span", { staticClass: "is-size-4" }, [
                             _vm._v(" " + _vm._s(task.name))
                           ])
                     ]),
                     _vm._v(" "),
-                    _vm.isSelected(task)
-                      ? _c(
-                          "div",
-                          { staticClass: "buttons has-addons is-marginess " },
-                          [
-                            !_vm.modes.delete
-                              ? _c("div", { staticClass: "control" }, [
-                                  !_vm.modes.edit
-                                    ? _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-marginless is-small",
-                                          on: {
-                                            click: function($event) {
-                                              $event.stopPropagation()
-                                              _vm.modes.edit = true
-                                            }
-                                          }
-                                        },
-                                        [_c("i", { staticClass: "fa fa-edit" })]
-                                      )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _vm.modes.edit
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "buttons has-addons is-marginless"
-                                        },
-                                        [
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass: "button is-small",
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  return _vm.cancelEdit($event)
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-ban"
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass:
-                                                "button is-small is-primary",
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  return _vm.edit($event)
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-save"
-                                              })
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    : _vm._e()
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.modes.edit
-                              ? _c("div", { staticClass: "control" }, [
-                                  !_vm.modes.delete
-                                    ? _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-marginless is-small"
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-times",
+                    _c(
+                      "div",
+                      { staticClass: "control is-pulled-right column is-2" },
+                      [
+                        _vm.isSelected(task)
+                          ? _c("div", { staticClass: "buttons has-addons " }, [
+                              !_vm.modes.delete
+                                ? _c("div", { staticClass: "control" }, [
+                                    !_vm.modes.edit
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass: "button ",
                                             on: {
                                               click: function($event) {
                                                 $event.stopPropagation()
-                                                _vm.modes.delete = true
+                                                _vm.modes.edit = true
                                               }
                                             }
-                                          })
-                                        ]
-                                      )
-                                    : _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "buttons has-addons is-marginless"
-                                        },
-                                        [
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass: "button is-small",
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  _vm.modes.delete = false
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-ban"
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass:
-                                                "button is-small is-danger"
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-trash",
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-edit"
+                                            })
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.modes.edit
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass: "buttons has-addons "
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass: "button ",
                                                 on: {
                                                   click: function($event) {
                                                     $event.stopPropagation()
-                                                    return _vm.remove($event)
+                                                    return _vm.cancelEdit(
+                                                      $event
+                                                    )
                                                   }
                                                 }
-                                              })
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                ])
-                              : _vm._e()
-                          ]
-                        )
-                      : _vm._e()
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-ban"
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button  is-primary",
+                                                on: {
+                                                  click: function($event) {
+                                                    $event.stopPropagation()
+                                                    return _vm.edit($event)
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-save"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              !_vm.modes.edit
+                                ? _c("div", { staticClass: "control" }, [
+                                    !_vm.modes.delete
+                                      ? _c(
+                                          "button",
+                                          { staticClass: "button " },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-times",
+                                              on: {
+                                                click: function($event) {
+                                                  $event.stopPropagation()
+                                                  _vm.modes.delete = true
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "div",
+                                          {
+                                            staticClass: "buttons has-addons "
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass: "button ",
+                                                on: {
+                                                  click: function($event) {
+                                                    $event.stopPropagation()
+                                                    _vm.modes.delete = false
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-ban"
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass: "button  is-danger"
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-trash",
+                                                  on: {
+                                                    click: function($event) {
+                                                      $event.stopPropagation()
+                                                      return _vm.remove($event)
+                                                    }
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e()
+                            ])
+                          : _vm._e()
+                      ]
+                    )
                   ])
                 ])
               ]
