@@ -81,10 +81,10 @@ export default {
   },
   data() {
     return {
-      API_ENDPOINT: "https://todovu.herokuapp.com/api/tasks",
-      // window.location.hostname === "todovu.herokuapp.com"
-      //   ? "https://todovu.herokuapp.com/api/tasks/"
-      //   : "/api/tasks/",
+      API_ENDPOINT:
+        window.location.hostname === "todovu.herokuapp.com"
+          ? "https://todovu.herokuapp.com/api/tasks"
+          : "/api/tasks",
       modes: {
         edit: false,
         delete: false
