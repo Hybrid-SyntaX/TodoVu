@@ -3,11 +3,11 @@
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
 
-echo $heroku_psql_url['host']; echo "<br/>";
-echo $heroku_psql_url['port'];echo "<br/>";
-echo ltrim($heroku_psql_url['path'],'/');echo "<br/>";
-echo $heroku_psql_url['user']; echo "<br/>";
-echo $heroku_psql_url['pass'];echo "<br/>";
+$heroku_psql_host= trim($heroku_psql_url['host']); 
+$heroku_psql_port =trim($heroku_psql_url['port']);
+$heroku_psql_database =trim(ltrim($heroku_psql_url['path'],'/'));
+$heroku_psql_username=trim( $heroku_psql_url['user']); 
+$heroku_psql_password =trim($heroku_psql_url['pass']);
 return [
 
     /*
@@ -47,12 +47,12 @@ return [
     'connections' => [
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', $heroku_psql_url['host']),
-            'port' => env('DB_PORT', $heroku_psql_url['port']),
+            'host' => env('DB_HOST', $heroku_psql_host),
+            'port' => env('DB_PORT', $heroku_psql_port),
             //'database' => env('DB_DATABASE', ltrim($heroku_psql_url['path'],'/')),
-            'database' => env('DB_DATABASE', ltrim($heroku_psql_url['path'],'/')),
-            'username' => env('DB_USERNAME',$heroku_psql_url['user']),
-            'password' => env('DB_PASSWORD', $heroku_psql_url['pass']),
+            'database' => env('DB_DATABASE', $heroku_psql_database),
+            'username' => env('DB_USERNAME',$heroku_psql_username),
+            'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
             'prefix' => '',
             //'schema' => $heroku_psql_url['scheme'],
