@@ -141,7 +141,8 @@ export default {
       const response = await axios.patch(uri);
       if (response) await this.populateTasks();
     },
-    save: async function() {
+    save: async function(e) {
+      e.stopPropagation();
       const response = await axios.post(this.API_ENDPOINT, this.newTask);
       if (response) await this.populateTasks();
     },

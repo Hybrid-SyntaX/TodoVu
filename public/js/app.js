@@ -47983,27 +47983,28 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       return toggleCompletion;
     }(),
     save: function () {
-      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(e) {
         var response;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _context6.next = 2;
+                e.stopPropagation();
+                _context6.next = 3;
                 return axios.post(this.API_ENDPOINT, this.newTask);
 
-              case 2:
+              case 3:
                 response = _context6.sent;
 
                 if (!response) {
-                  _context6.next = 6;
+                  _context6.next = 7;
                   break;
                 }
 
-                _context6.next = 6;
+                _context6.next = 7;
                 return this.populateTasks();
 
-              case 6:
+              case 7:
               case "end":
                 return _context6.stop();
             }
@@ -48011,7 +48012,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee6, this);
       }));
 
-      function save() {
+      function save(_x3) {
         return _ref6.apply(this, arguments);
       }
 
