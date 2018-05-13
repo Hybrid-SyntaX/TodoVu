@@ -82,8 +82,8 @@ export default {
     return {
       API_ENDPOINT:
         process.env.NODE_ENV === "development"
-          ? "/api/tasks"
-          : "https://todovu.herokuapp.com/api/tasks",
+          ? "/api/tasks/"
+          : "https://todovu.herokuapp.com/api/tasks/",
       modes: {
         edit: false,
         delete: false
@@ -100,7 +100,7 @@ export default {
     taskCompletionButtonClass(t) {
       return {
         "fa-check": t.completionDate,
-        "fa-times": !t.completionDate
+        "fa-square": !t.completionDate
       };
     },
     isSelected: function(t) {

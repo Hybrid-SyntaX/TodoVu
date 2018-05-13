@@ -47811,7 +47811,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   }(),
   data: function data() {
     return {
-      API_ENDPOINT:  true ? "/api/tasks" : "https://todovu.herokuapp.com/api/tasks",
+      API_ENDPOINT:  true ? "/api/tasks/" : "https://todovu.herokuapp.com/api/tasks/",
       modes: {
         edit: false,
         delete: false
@@ -47829,7 +47829,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     taskCompletionButtonClass: function taskCompletionButtonClass(t) {
       return {
         "fa-check": t.completionDate,
-        "fa-times": !t.completionDate
+        "fa-square": !t.completionDate
       };
     },
 
