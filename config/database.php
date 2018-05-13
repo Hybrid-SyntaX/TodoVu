@@ -59,10 +59,11 @@ return [
             'username' => env('DB_USERNAME',$heroku_psql_username),
             'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
-            'prefix' => '',
+            //'prefix' => '',
             //'schema' => $heroku_psql_url['scheme'],
             'schema' => 'public',
             //'sslmode' => 'prefer',
+            'strict'    => false,
         ],
         'sqlite' => [
             'driver' => 'sqlite',
