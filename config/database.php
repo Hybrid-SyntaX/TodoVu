@@ -3,11 +3,17 @@
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
 
-$heroku_psql_host= trim($heroku_psql_url['host']); 
-$heroku_psql_port =trim($heroku_psql_url['port']);
-$heroku_psql_database =trim(ltrim($heroku_psql_url['path'],'/'));
-$heroku_psql_username=trim( $heroku_psql_url['user']); 
-$heroku_psql_password =trim($heroku_psql_url['pass']);
+// $heroku_psql_host= trim($heroku_psql_url['host']); 
+// $heroku_psql_port =trim($heroku_psql_url['port']);
+// $heroku_psql_database =trim(ltrim($heroku_psql_url['path'],'/'));
+// $heroku_psql_username=trim( $heroku_psql_url['user']); 
+// $heroku_psql_password =trim($heroku_psql_url['pass']);
+
+$heroku_psql_host= "ec2-54-228-181-43.eu-west-1.compute.amazonaws.com"; 
+$heroku_psql_port ="5432";
+$heroku_psql_database ="d2pcg122dq6vka";
+$heroku_psql_username="kaoewfhvtlirlf"; 
+$heroku_psql_password ="f710ba356cd68ed0a5312d69ae58a341314ba1aa0108c6a4c1cde0cf503b33b7";
 return [
 
     /*
@@ -24,7 +30,7 @@ return [
 
 
     //'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql '),
+    'default' => env('DB_CONNECTION', 'heroku_pgsql '),
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +51,7 @@ return [
     
     //$heroku_psql_url['path']
     'connections' => [
-        'pgsql' => [
+        'heroku_pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', $heroku_psql_host),
             'port' => env('DB_PORT', $heroku_psql_port),
