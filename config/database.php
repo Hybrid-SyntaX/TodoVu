@@ -2,9 +2,12 @@
 
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
-print_r($heroku_psql_url);
 
-
+echo $heroku_psql_url['host']; echo "<br/>";
+echo $heroku_psql_url['port'];echo "<br/>";
+echo ltrim($heroku_psql_url['path'],'/');echo "<br/>";
+echo $heroku_psql_url['user']; echo "<br/>";
+echo $heroku_psql_url['pass'];echo "<br/>";
 return [
 
     /*
