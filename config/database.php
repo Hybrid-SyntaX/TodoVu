@@ -1,5 +1,9 @@
 <?php
 
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$heroku_psql_url = parse_url(getenv('DATABASE_URL'));
+
+
 return [
 
     /*
@@ -13,7 +17,10 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+
+
+    //'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql_heroku '),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,8 +38,21 @@ return [
     |
     */
 
+    
+    //$heroku_psql_url['path']
     'connections' => [
-
+        'pgsql_heroku' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST', $heroku_psql_url['host']),
+            'port' => env('DB_PORT', $heroku_psql_url['port']),
+            'database' => env('DB_DATABASE', 'tasks'),
+            'username' => env('DB_USERNAME',$heroku_psql_url['user']),
+            'password' => env('DB_PASSWORD', $heroku_psql_url['pass']),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => $heroku_psql_url['scheme'],
+            'sslmode' => 'prefer',
+        ],
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -61,6 +81,18 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+        'pgsql_local' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'tasks'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', '123456'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
