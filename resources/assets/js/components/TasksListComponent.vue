@@ -128,18 +128,19 @@ export default {
     remove: async function(e) {
       e.stopPropagation();
       const response = await axios.delete(
-        this.API_ENDPOINT + this.selectedTask.id
+        this.API_ENDPOINT + "/" + this.selectedTask.id
       );
       if (response) await this.populateTasks();
       this.modes.delete = false;
     },
     readAll: async function() {
-      var response = await axios.get(this.API_ENDPOINT);
+      var response = await axios.get(this.API_ENDPOINT + "/");
       return response.data;
     },
     toggleCompletion: async function(task) {
       var uri =
         this.API_ENDPOINT +
+        "/" +
         task.id +
         (task.completionDate ? "/undone" : "/done");
       const response = await axios.patch(uri);
@@ -147,7 +148,7 @@ export default {
     },
     save: async function(e) {
       e.stopPropagation();
-      const response = await axios.post(this.API_ENDPOINT, this.newTask);
+      const response = await axios.post(this.API_ENDPOINT + "/", this.newTask);
       if (response) {
         await this.populateTasks();
         this.newTask.name = null;
@@ -155,7 +156,7 @@ export default {
     },
     edit: async function() {
       const response = await axios.put(
-        this.API_ENDPOINT + this.selectedTask.id,
+        this.API_ENDPOINT + "/" + this.selectedTask.id,
         this.selectedTask
       );
       if (response) {

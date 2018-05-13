@@ -47891,7 +47891,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 e.stopPropagation();
                 _context3.next = 3;
-                return axios.delete(this.API_ENDPOINT + this.selectedTask.id);
+                return axios.delete(this.API_ENDPOINT + "/" + this.selectedTask.id);
 
               case 3:
                 response = _context3.sent;
@@ -47929,7 +47929,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return axios.get(this.API_ENDPOINT);
+                return axios.get(this.API_ENDPOINT + "/");
 
               case 2:
                 response = _context4.sent;
@@ -47956,7 +47956,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                uri = this.API_ENDPOINT + task.id + (task.completionDate ? "/undone" : "/done");
+                uri = this.API_ENDPOINT + "/" + task.id + (task.completionDate ? "/undone" : "/done");
                 _context5.next = 3;
                 return axios.patch(uri);
 
@@ -47994,7 +47994,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 e.stopPropagation();
                 _context6.next = 3;
-                return axios.post(this.API_ENDPOINT, this.newTask);
+                return axios.post(this.API_ENDPOINT + "/", this.newTask);
 
               case 3:
                 response = _context6.sent;
@@ -48032,7 +48032,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             switch (_context7.prev = _context7.next) {
               case 0:
                 _context7.next = 2;
-                return axios.put(this.API_ENDPOINT + this.selectedTask.id, this.selectedTask);
+                return axios.put(this.API_ENDPOINT + "/" + this.selectedTask.id, this.selectedTask);
 
               case 2:
                 response = _context7.sent;
