@@ -10,12 +10,7 @@ $heroku_psql_username=trim( $heroku_psql_url['user']);
 $heroku_psql_password =trim($heroku_psql_url['pass']);
 $heroku_psql_scheme =trim($heroku_psql_url['scheme']);
 
-// $heroku_psql_host= "ec2-54-228-181-43.eu-west-1.compute.amazonaws.com"; 
-// $heroku_psql_port ="5432";
-// $heroku_psql_database ="d2pcg122dq6vka";
-// $heroku_psql_username="kaoewfhvtlirlf"; 
-// $heroku_psql_password ="f710ba356cd68ed0a5312d69ae58a341314ba1aa0108c6a4c1cde0cf503b33b7";
-// $heroku_psql_scheme = "scheme";
+
 return [
 
     /*
@@ -55,11 +50,6 @@ return [
     'connections' => [
         'heroku_pgsql' => [
             'driver' => 'pgsql',
-            // 'port' => $heroku_psql_port,
-            // 'database' => $heroku_psql_database,
-            // 'username' => $heroku_psql_username,
-            // 'password' => $heroku_psql_password,
-            //'schema' => 'public',
             'host' =>  env('DB_HOST',$heroku_psql_host),
             'port' => env('DB_PORT', $heroku_psql_port),
             'database' => env('DB_DATABASE', $heroku_psql_database),
