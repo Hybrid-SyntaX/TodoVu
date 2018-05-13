@@ -9,48 +9,50 @@
     <div class="column">
 
       
-        <div class="field has-addons box column is-4">
-          <div class="control">
-            <input v-model="newTask.name" placeholder="Add new task" class="input is-8" />
+      <ul class="column is-6">
+        <li class="field has-addons  " style="border-radius:0px">
+          <div class="control is-expanded">
+            <input v-model="newTask.name" placeholder="Add new task" class="input is-info" />
           </div>
           <div class="control">
             <button class="button is-info" @click.stop="save">
               <i class="fa fa-plus" />
             </button>
           </div>
-        </div>
-      
-
-      <ul class="column is-4">
+        </li>
         <li v-for="task in tasks" v-bind:key="task.id" @click="select(task)" :class="['box','task','is-marginless',selectedClass(task),completedTaskClass(task)]">
 
           <div class="field is-grouped columns">
-            <div class="field is-grouped column  is-8">
-              <button class="button is-small" @click="toggleCompletion(task)" style="margin:0px 10px 0px 0px">
+            <div class="field is-grouped  column ">
+              <div class="control">
+                <button class="button is-small" @click="toggleCompletion(task)">
                 <i class="fa" :class="taskCompletionButtonClass(task)" />
               </button>
-              <input type="text" v-model="task.name" class="input is-size-6 is-marginless" @click.stop="" v-if="modes.edit && isSelected(task)">
-              <span class="is-size-6 is-marginless" v-else> {{task.name}}</span>
-            </div>
-            <div class="buttons has-addons is-marginess is-pulled-right" v-if="isSelected(task)">
-
+                </div>
+              <div class="control is-marginless">
+                <input type="text" v-model="task.name" class="input is-small is-expanded is-marginless" @click.stop="" v-if="modes.edit && isSelected(task)">
+                <span class="is-marginless" v-else> {{task.name}}</span>
+              </div>
+            <!-- </div> -->
+            <!--controls -->
+            <div class="buttons has-addons is-marginess " v-if="isSelected(task)">
               <!-- edit buttons -->
-              <template v-if="!modes.delete">
+              <div v-if="!modes.delete" class="control">
                 <button class="button is-marginless is-small" @click.stop="modes.edit=true" v-if="!modes.edit">
                   <i class="fa fa-edit" />
                 </button>
                 <!-- buttons -->
                 <div class="buttons has-addons is-marginless" v-if="modes.edit">
-                  <button class="button  is-small" @click.stop="modes.edit=false">
+                  <button class="button is-small" @click.stop="cancelEdit">
                     <i class="fa fa-ban" />
                   </button>
-                  <button class="button is-primary is-small" @click.stop="edit">
+                  <button class="button is-small is-primary" @click.stop="edit">
                     <i class="fa fa-save" />
                   </button>
                 </div>
-              </template>
+              </div>
               <!-- delete button -->
-              <template v-if="!modes.edit">
+              <div v-if="!modes.edit" class="control">
                 <button class="button is-marginless is-small" v-if="!modes.delete">
                   <i class="fa fa-times" @click.stop="modes.delete=true" />
                 </button>
@@ -59,11 +61,13 @@
                   <button class="button is-small" @click.stop="modes.delete=false">
                     <i class="fa fa-ban" />
                   </button>
-                  <button class="button is-danger is-small">
+                  <button class="button is-small is-danger">
                     <i class="fa fa-trash" @click.stop="remove" />
                   </button>
                 </div>
-              </template>
+              </div>
+            </div>
+            <!-- /controls -->
             </div>
           </div>
         </li>
@@ -163,6 +167,10 @@ export default {
         await this.populateTasks();
         this.modes.edit = false;
       }
+    },
+    async cancelEdit() {
+      this.modes.edit = false;
+      await this.populateTasks();
     }
   }
 };
