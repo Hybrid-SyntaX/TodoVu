@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/api/test',function (){
+    return "Everything works fine!";
+});
 Route::get('/','TasksController@main');
 
 //Create
