@@ -21,7 +21,7 @@ return [
 
 
     //'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql_heroku '),
+    'default' => env('DB_CONNECTION', 'pgsql '),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     
     //$heroku_psql_url['path']
     'connections' => [
-        'pgsql_heroku' => [
+        'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', $heroku_psql_url['host']),
             'port' => env('DB_PORT', $heroku_psql_url['port']),
@@ -75,18 +75,18 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
         'pgsql_local' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
