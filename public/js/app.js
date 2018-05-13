@@ -48879,7 +48879,15 @@ var render = function() {
           _c("div", { staticClass: "control" }, [
             _c(
               "button",
-              { staticClass: "button is-info", on: { click: _vm.save } },
+              {
+                staticClass: "button is-info",
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    return _vm.save($event)
+                  }
+                }
+              },
               [_c("i", { staticClass: "fa fa-plus" })]
             )
           ])

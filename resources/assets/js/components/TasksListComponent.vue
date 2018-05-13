@@ -14,7 +14,7 @@
             <input v-model="newTask.name" placeholder="Add new task" class="input is-7" />
           </div>
           <div class="control">
-            <button class="button is-info" @click="save">
+            <button class="button is-info" @click.stop="save">
               <i class="fa fa-plus" />
             </button>
           </div>

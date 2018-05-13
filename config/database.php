@@ -1,6 +1,5 @@
 <?php
 
-//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
 
 $heroku_psql_host= trim($heroku_psql_url['host']); 
@@ -57,7 +56,6 @@ return [
             'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
             'prefix' => '',
-            //'schema' => $heroku_psql_scheme,
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
