@@ -3,17 +3,19 @@
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $heroku_psql_url = parse_url(getenv('DATABASE_URL'));
 
-// $heroku_psql_host= trim($heroku_psql_url['host']); 
-// $heroku_psql_port =trim($heroku_psql_url['port']);
-// $heroku_psql_database =trim(ltrim($heroku_psql_url['path'],'/'));
-// $heroku_psql_username=trim( $heroku_psql_url['user']); 
-// $heroku_psql_password =trim($heroku_psql_url['pass']);
+$heroku_psql_host= trim($heroku_psql_url['host']); 
+$heroku_psql_port =trim($heroku_psql_url['port']);
+$heroku_psql_database =trim(ltrim($heroku_psql_url['path'],'/'));
+$heroku_psql_username=trim( $heroku_psql_url['user']); 
+$heroku_psql_password =trim($heroku_psql_url['pass']);
+$heroku_psql_scheme =trim($heroku_psql_url['scheme']);
 
-$heroku_psql_host= "ec2-54-228-181-43.eu-west-1.compute.amazonaws.com"; 
-$heroku_psql_port ="5432";
-$heroku_psql_database ="d2pcg122dq6vka";
-$heroku_psql_username="kaoewfhvtlirlf"; 
-$heroku_psql_password ="f710ba356cd68ed0a5312d69ae58a341314ba1aa0108c6a4c1cde0cf503b33b7";
+// $heroku_psql_host= "ec2-54-228-181-43.eu-west-1.compute.amazonaws.com"; 
+// $heroku_psql_port ="5432";
+// $heroku_psql_database ="d2pcg122dq6vka";
+// $heroku_psql_username="kaoewfhvtlirlf"; 
+// $heroku_psql_password ="f710ba356cd68ed0a5312d69ae58a341314ba1aa0108c6a4c1cde0cf503b33b7";
+// $heroku_psql_scheme = "scheme";
 return [
 
     /*
@@ -64,8 +66,8 @@ return [
             // 'password' => env('DB_PASSWORD', $heroku_psql_password),
             'charset' => 'utf8',
             'prefix' => '',
-            //'schema' => $heroku_psql_url['scheme'],
-            'schema' => 'public',
+            'schema' => $heroku_psql_scheme,
+            //'schema' => 'public',
             'sslmode' => 'prefer',
         ],
         'sqlite' => [
