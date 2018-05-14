@@ -152,6 +152,7 @@ export default {
       if (response) await this.populateTasks();
     },
     save: async function(e) {
+      console.log(this.API_ENDPOINT, this.newTask);
       const response = await axios.post(this.API_ENDPOINT, this.newTask);
       if (response) {
         await this.populateTasks();
